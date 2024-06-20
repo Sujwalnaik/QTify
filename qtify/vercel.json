@@ -1,5 +1,7 @@
 {
-    "rewrite":[{
-        "source":"/(.*)","destination":"/"
+    "rewrite": [{
+      "source": "/(.*)",
+      "destination": "/"
     }]
-}
+  }
+  
