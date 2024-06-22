@@ -78,6 +78,7 @@ function Navbar() {
             variant="contained"
             sx={{
               fontWeight: 600,
+              fontFamily: "Poppins",
               bgcolor: "black",
               color: "#34C94B",
               fontSize: mobileView ? "10px" : "18px",
