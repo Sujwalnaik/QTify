@@ -1,10 +1,17 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import {
+  Button,
+  InputAdornment,
+  TextField,
+  useMediaQuery,
+} from "@mui/material";
 import logo from "../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 
 function Navbar() {
+  const mobileView = useMediaQuery("(max-width: 500px)");
+  // const mobileView = useMediaQuery("(max-width: 500px)");
   return (
     <Grid container>
       <Grid
@@ -30,7 +37,7 @@ function Navbar() {
           xs
           display="flex"
           justifyContent="center"
-          sx={{ flexGrow: 1, mx: { xs: 2, sm: 5, lg: 10 } }}
+          sx={{ flexGrow: 1, mx: { xs: 2, sm: 3, lg: 10 } }}
         >
           <TextField
             type="search"
@@ -73,7 +80,7 @@ function Navbar() {
               fontWeight: 600,
               bgcolor: "black",
               color: "#34C94B",
-              fontSize: "18px",
+              fontSize: mobileView ? "10px" : "18px",
               width: { xs: "auto", sm: "150px", lg: "200px" },
               borderRadius: "10px",
               textTransform: "none",
