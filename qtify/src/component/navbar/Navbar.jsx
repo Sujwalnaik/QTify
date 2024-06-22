@@ -13,7 +13,7 @@ function Navbar() {
   const mobileView = useMediaQuery("(max-width: 500px)");
   // const mobileView = useMediaQuery("(max-width: 500px)");
   return (
-    <Grid container>
+    <Grid container position={"sticky"} top={"0px"} zIndex={10}>
       <Grid
         container
         item

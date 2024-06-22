@@ -14,4 +14,5 @@ export const heroContainer = {
   alignItems: "center",
   lineHeight: "48px",
   background: "black",
+  // border: "5px solid red",
 };
