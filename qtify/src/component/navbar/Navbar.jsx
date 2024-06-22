@@ -6,8 +6,9 @@ import SearchIcon from "@mui/icons-material/Search";
 
 function Navbar() {
   return (
-    <Grid>
+    <Grid container>
       <Grid
+        container
         item
         xs={12}
         bgcolor={"#34C94B"}
@@ -16,7 +17,7 @@ function Navbar() {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Grid>
+        <Grid item>
           <img
             src={logo}
             alt="Logo"
@@ -24,23 +25,28 @@ function Navbar() {
           />
         </Grid>
 
-        <Grid item xs={12} display="flex" justifyContent="center">
+        <Grid
+          item
+          xs
+          display="flex"
+          justifyContent="center"
+          sx={{ flexGrow: 1, mx: { xs: 2, sm: 5, lg: 10 } }}
+        >
           <TextField
             type="search"
             placeholder="Search an album of your voice"
             variant="outlined"
+            fullWidth
             sx={{
-              // width: "100%",
-              width: "40rem",
-
+              maxWidth: "600px",
               "& .MuiOutlinedInput-root": {
                 borderRadius: "8px",
                 border: "1px solid black",
                 bgcolor: "white",
               },
-              "&.Mui-focused": {
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                 border: "none",
-                // boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                boxShadow: "0 0 5px rgba(0,0,0,0.2)",
               },
             }}
             InputProps={{
@@ -59,7 +65,8 @@ function Navbar() {
             }}
           />
         </Grid>
-        <Grid>
+
+        <Grid item>
           <Button
             variant="contained"
             sx={{
@@ -67,7 +74,7 @@ function Navbar() {
               bgcolor: "black",
               color: "#34C94B",
               fontSize: "18px",
-              width: "200px",
+              width: { xs: "auto", sm: "150px", lg: "200px" },
               borderRadius: "10px",
               textTransform: "none",
               marginRight: "20px",
