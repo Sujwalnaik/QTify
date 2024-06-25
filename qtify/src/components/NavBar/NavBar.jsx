@@ -31,17 +31,17 @@ const NavBar = ({ data, logo = false, search = false, feedback = false }) => {
         {feedback ? (
           <div
             className={styles.nav_link}
-            onClick={() => toggleFeedBackModal(true)}
+            // onClick={() => toggleFeedBackModal(true)}
           >
-            Feedback
+            Give Feedback
           </div>
         ) : null}
       </nav>
-      <FeedBackModal
+      {/* <FeedBackModal
         isOpen={isFeedBackModalOpen}
         //    onSuccess={_onSuccess}
         onDismiss={toggleFeedBackModal}
-      />
+      /> */}
     </div>
   );
 };
