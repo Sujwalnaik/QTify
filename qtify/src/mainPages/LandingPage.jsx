@@ -97,7 +97,7 @@ const LandingPage = () => {
         />
       </div>
       <hr className={styles.line}></hr>
-      {/* <div className={styles.filter_songs_wrapper}>
+      <div className={styles.filter_songs_wrapper}>
         <div>
           <h3 className={styles.tabsTitle}>Songs</h3>
           <FilterTabs
@@ -105,9 +105,9 @@ const LandingPage = () => {
             loadingState={loadingState.allSongs}
           />
         </div>
-      </div> */}
+      </div>
       <hr className={styles.line}></hr>
-      {/* <div className={styles.customAccordionWrapper}>
+      <div className={styles.customAccordionWrapper}>
         <h1 className={styles.accordionHeader}>FAQS</h1>
 
         {accordionData?.length ? (
@@ -117,8 +117,8 @@ const LandingPage = () => {
         ) : (
           <></>
         )}
-      </div> */}
-      {/* <Footer /> */}
+      </div>
+      <Footer />
     </>
   );
 };
