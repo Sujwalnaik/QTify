@@ -12,7 +12,7 @@ import Section from "../components/Section/Section.jsx";
 import FilterTabs from "../components/FilterTabs/FilterTabs.jsx";
 import { accordionData } from "../config/helper-config.js";
 import CustomAccordion from "../components/Accordion/CustomAccordion.jsx";
-// import Footer from "../components/Footer/Footer.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 
 const LandingPage = () => {
   const [topAlbumData, setTopAlbumData] = useState([]);
