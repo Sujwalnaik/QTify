@@ -42,9 +42,9 @@ function Home() {
       </Grid>
       <Grid
         container
-        sx={{ bgcolor: "black", height: "100vh", marginTop: "50px" }}
+        sx={{ bgcolor: "black", height: "2000vh", marginTop: "50px" }}
       >
-        <Typography variant="h4">Songs</Typography>
+        <Typography>Songs </Typography>
         {allSongsData.map((item) => (
           <Cards
             key={item.id} // Assuming item.id exists to provide a unique key

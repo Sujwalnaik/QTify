@@ -116,7 +116,7 @@ function Section() {
             fontSize: "20px",
           }}
         >
-          <Typography sx={titleText}>Top Albums</Typography>
+          <Typography sx={titleText}>New Albums</Typography>
           <Button
             onClick={handleToggleSec}
             sx={{ color: "green", fontWeight: 700 }}
