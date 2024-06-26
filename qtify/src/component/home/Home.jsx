@@ -4,23 +4,23 @@ import { heroContainer, textHero } from "./Home-style";
 import heroLogo from "../../assets/hero_headphones.png";
 import Cards from "../card/card";
 import Section from "../section/Section";
-import FilterTabs from "../FilterTabs/FilterTabs";
+// import FilterTabs from "../FilterTabs/FilterTabs";
 import axios from "axios";
 
 function Home() {
   const [allSongsData, setAllSongsData] = useState([]);
-  console.log("allSongsData---------", allSongsData);
 
-  const fetchAllSonData = async () => {
+  const fetchAllSongData = async () => {
     try {
       const res = await axios.get("https://qtify-backend-labs.crio.do/songs");
-      setAllSongsData(res);
+      setAllSongsData(res.data); // Store res.data, not just res
     } catch (err) {
-      console.log(err);
+      console.error("Error fetching songs:", err);
     }
   };
+
   useEffect(() => {
-    fetchAllSonData();
+    fetchAllSongData();
   }, []);
   return (
     <Grid sx={{ height: "2000px", bgcolor: "black" }}>
@@ -40,9 +40,22 @@ function Home() {
       <Grid sx={{ bgcolor: "black", height: "100vh", marginTop: "30px" }}>
         <Section />
       </Grid>
-      <Grid sx={{ bgcolor: "black", height: "100vh", marginTop: "50px" }}>
-        <FilterTabs data={allSongsData} />
+      <Grid
+        container
+        sx={{ bgcolor: "black", height: "100vh", marginTop: "50px" }}
+      >
+        <Typography variant="h4">Songs</Typography>
+        {allSongsData.map((item) => (
+          <Cards
+            key={item.id} // Assuming item.id exists to provide a unique key
+            alt="Song Image"
+            followers={item.followers} // Assuming these props are correct for Cards component
+            image={item.image}
+            title={item.title}
+          />
+        ))}
       </Grid>
+      {/* <CustomTabs /> */}
     </Grid>
   );
 }
