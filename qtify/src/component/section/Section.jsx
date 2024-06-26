@@ -13,6 +13,7 @@ function Section() {
   const [getAllAlbums, setGetAllAlbums] = useState([]);
   const [error, setError] = useState(null);
   const [showCarousel, setShowCarousel] = useState(false);
+  const [showCarouselSec, setShowCarouselSec] = useState(false);
 
   useEffect(() => {
     const fetchTopAlbums = async () => {
@@ -44,19 +45,36 @@ function Section() {
     setShowCarousel(!showCarousel);
   };
 
+  const handleToggleSec = () => {
+    setShowCarouselSec(!showCarouselSec);
+  };
+
   return (
     <>
       <Grid sx={mainContainer}>
-        <Grid container marginBottom={"20px"}>
+        <Grid
+          container
+          marginBottom={"20px"}
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
           <Typography sx={titleText}>Top Albums</Typography>
-          <Button onClick={handleToggle}>
+          <Button
+            onClick={handleToggle}
+            sx={{
+              color: "green",
+              fontWeight: 800,
+              fontWeight: "Poppins",
+              fontSize: "20px",
+            }}
+          >
             {showCarousel ? "Show All" : "Collapse"}
           </Button>
         </Grid>
         {showCarousel ? (
           <Carousel
-            items={getTopAlbums}
-            renderItem={(item) => (
+            // sx={{ display: "flex", flexDirection: "row" }}
+            data={getTopAlbums}
+            renderCardComponent={(item) => (
               <Cards
                 alt="image"
                 image={item.image}
@@ -64,16 +82,15 @@ function Section() {
                 title={item.title}
               />
             )}
+            showAll={showCarousel}
           />
         ) : (
           <Grid
             sx={{
               display: "flex",
               flexDirection: "row",
-
+              flexWrap: "wrap",
               gap: 5,
-              overflowX: "auto",
-              scrollbarWidth: "none",
             }}
           >
             {getTopAlbums?.map((item, index) => (
@@ -87,21 +104,61 @@ function Section() {
             ))}
           </Grid>
         )}
-        <Grid container margin={"50px 0px 20px 0px"}>
-          <Typography sx={titleText}>New Albums</Typography>
+
+        <Grid
+          container
+          marginTop={"40px"}
+          marginBottom={"20px"}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            fontWeight: "Poppins",
+            fontSize: "20px",
+          }}
+        >
+          <Typography sx={titleText}>Top Albums</Typography>
+          <Button
+            onClick={handleToggleSec}
+            sx={{ color: "green", fontWeight: 700 }}
+          >
+            {showCarouselSec ? "Show All" : "Collapse"}
+          </Button>
         </Grid>
-        <Carousel
-          sx={{ display: "Flex" }}
-          items={getAllAlbums}
-          renderItem={(item) => (
-            <Cards
-              alt="image"
-              image={item.image}
-              followers={item.follows}
-              title={item.title}
-            />
-          )}
-        />
+        {showCarouselSec ? (
+          <Carousel
+            // sx={{ display: "flex", flexDirection: "row" }}
+            data={getAllAlbums}
+            renderCardComponent={(item) => (
+              <Cards
+                alt="image"
+                image={item.image}
+                followers={item.follows}
+                title={item.title}
+              />
+            )}
+            showAll={showCarousel}
+          />
+        ) : (
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: 5,
+            }}
+          >
+            {getAllAlbums?.map((item, index) => (
+              <Cards
+                key={index}
+                alt="image"
+                image={item.image}
+                followers={item.follows}
+                title={item.title}
+              />
+            ))}
+          </Grid>
+        )}
+        {/* allAlbnum */}
       </Grid>
     </>
   );

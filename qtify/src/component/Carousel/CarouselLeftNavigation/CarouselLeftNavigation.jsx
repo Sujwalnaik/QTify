@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { ReactComponent as LeftArrow } from "../../../assets/LeftArrow.svg"
-import { useSwiper } from 'swiper/react'
-import styles from "../Carousel.module.css"
+import React, { useEffect, useState } from "react";
+import { ReactComponent as LeftArrow } from "../../../assets/LeftArrow.svg";
+import { useSwiper } from "swiper/react";
+import { leftNavigation } from "../Carouselmodule";
+import { Grid } from "@mui/material";
 
 const CarouselLeftNavigation = () => {
-    const swiper = useSwiper();
-    const [isBegin,setIsBegin]=useState(true);
+  const swiper = useSwiper();
+  const [isBegin, setIsBegin] = useState(true);
 
-    useEffect(()=> {
-        swiper.on("slideChange",()=> {
-            setIsBegin(swiper.isBeginning);
-        })
-    },[swiper])
+  useEffect(() => {
+    swiper.on("slideChange", () => {
+      setIsBegin(swiper.isBeginning);
+    });
+  }, [swiper]);
   return (
-    <div className={styles.leftNavigation}>
-        {!isBegin && <LeftArrow onClick={() => swiper.slidePrev()} />}
-    </div>
-  )
-}
+    <Grid sx={leftNavigation}>
+      {!isBegin && <LeftArrow onClick={() => swiper.slidePrev()} />}
+    </Grid>
+  );
+};
 
-export default CarouselLeftNavigation
+export default CarouselLeftNavigation;

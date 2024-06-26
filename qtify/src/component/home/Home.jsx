@@ -7,7 +7,7 @@ import Section from "../section/Section";
 
 function Home() {
   return (
-    <>
+    <Grid sx={{ height: "1000px", bgcolor: "red" }}>
       <Grid container sx={heroContainer}>
         <Grid display={"flex"} flexDirection={"column"}>
           <Typography sx={textHero}>100 Thousand Songs, ad-free</Typography>
@@ -22,7 +22,7 @@ function Home() {
         </Grid>
       </Grid>
       <Section />
-    </>
+    </Grid>
   );
 }
 
